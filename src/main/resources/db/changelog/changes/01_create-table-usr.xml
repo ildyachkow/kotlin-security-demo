@@ -11,23 +11,18 @@
             </not>
         </preConditions>
         <createTable schemaName="public" tableName="usr">
-            <column name="id" type="bigint" autoIncrement="true">
-                <constraints primaryKey="true" primaryKeyName="usrPkey"/>
-            </column>
-            <column name="username" type="varchar(20)">
-                <constraints nullable="false"/>
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="usrPkey"/>
             </column>
             <column name="email" type="varchar(100)">
                 <constraints nullable="false"/>
             </column>
-            <column name="password" type="varchar(20)">
+            <column name="password" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role" type="text" defaultValue="USER">
                 <constraints nullable="false"/>
             </column>
         </createTable>
-        <insert schemaName="public" tableName="usr">
-            <column name="username" value="test"/>
-            <column name="email" value="test@test.ru"/>
-            <column name="password" value="test"/>
-        </insert>
     </changeSet>
 </databaseChangeLog>
